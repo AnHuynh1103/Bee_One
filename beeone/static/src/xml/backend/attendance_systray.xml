@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  <t t-name="beeone.AttendanceSystrayButton" owl="1">
+    <div class="o_systray_item">
+      <button
+        class="beeone-att-btn"
+        t-att-class="state.checkedIn ? 'beeone-att-btn is-in' : 'beeone-att-btn is-out'"
+        t-on-click="toggle"
+        t-att-disabled="state.loading || !state.employeeId"
+        t-att-title="state.checkedIn ? 'Check-out' : 'Check-in'">
+        <t t-esc="state.checkedIn ? 'Check-out' : 'Check-in'"/>
+      </button>
+    </div>
+  </t>
+</templates>

@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <!-- LƯU Ý: Tạo Group mới không được trùng lặp id và ghi đè lên gourp cũ 
+        ID group quyền (parent) phải khác nhau khi thêm mới -->
+        <record id="cate_groups_beeone" model="ir.module.category">
+            <field name="name">BEEONE ROLE</field>
+            <field name="sequence">500</field>
+        </record>
+
+        <!-- Nhóm quản lý -->
+        <record id="group_beeone_manager" model="res.groups">
+            <field name="name">BEEONE Manager</field>
+            <field name="category_id" ref="beeone.cate_groups_beeone"/>
+        </record>
+
+        <!-- Nhóm tiếp thị -->
+        <record id="group_beeone_marketing" model="res.groups">
+            <field name="name">BEEONE Marketing</field>
+            <field name="category_id" ref="beeone.cate_groups_beeone"/>
+        </record>
+
+        <!-- Nhóm nhân viên -->
+        <record id="group_beeone_employee" model="res.groups">
+            <field name="name">BEEONE Employee</field>
+            <field name="category_id" ref="beeone.cate_groups_beeone"/>
+        </record>
+    </data>
+</odoo>

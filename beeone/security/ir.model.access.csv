@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_manager_ir_config_parameter,access_manager_ir_config_parameter,base.model_ir_config_parameter,beeone.group_beeone_manager,1,0,0,0
+
+access_marketing_ir_config_parameter,access_marketing_ir_config_parameter,base.model_ir_config_parameter,beeone.group_beeone_marketing,1,0,0,0
+access_employee_ir_config_parameter,access_employee_ir_config_parameter,base.model_ir_config_parameter,beeone.group_beeone_employee,1,0,0,0
