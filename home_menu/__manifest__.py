@@ -4,7 +4,7 @@
     'version': '1.0',
     
     # Loại module
-    'category': '1. Duy An ERP',
+    'category': '1. BeeOne',
     
     # Tên tác giả
     'author': 'Huỳnh Quốc An',

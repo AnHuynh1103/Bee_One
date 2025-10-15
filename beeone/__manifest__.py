@@ -37,8 +37,7 @@
     'data': [
         'security/user_access.xml',
         'security/ir.model.access.csv',
-        # 'views/home_menu.xml',
-        # 'views/menu_item.xml',
+        'views/attendance_view.xml',
     ],
 
     # Import các file cấu hình (chỉ gọi từ folder 'static')
@@ -51,6 +50,7 @@
             # 'beeone/static/src/js/backend/**/*',
             # 'beeone/static/src/xml/backend/**/*',
             # 'beeone/static/src/css/backend/**/*',
+            'beeone/static/src/js/debug_guard.js',
         ],
     },
     'license': 'LGPL-3',

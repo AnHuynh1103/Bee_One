@@ -18,7 +18,28 @@ patch(WebClient.prototype, {
     if (await user.hasGroup("base.group_system"))
       return super._loadDefaultApp();
 
-    if (await user.hasGroup("dac_erp.group_dac_erp_manager")) {
+    // BEEONE Groups - redirect to home_menu
+    if (await user.hasGroup("beeone.group_beeone_manager")) {
+      const filteredArray = this.menuService
+        .getApps()
+        .filter((item) => item.xmlid === "home_menu.home_root");
+      root = filteredArray[0];
+      firstApp = root?.appID;
+    } else if (await user.hasGroup("beeone.group_beeone_marketing")) {
+      const filteredArray = this.menuService
+        .getApps()
+        .filter((item) => item.xmlid === "home_menu.home_root");
+      root = filteredArray[0];
+      firstApp = root?.appID;
+    } else if (await user.hasGroup("beeone.group_beeone_employee")) {
+      const filteredArray = this.menuService
+        .getApps()
+        .filter((item) => item.xmlid === "home_menu.home_root");
+      root = filteredArray[0];
+      firstApp = root?.appID;
+    }
+    // DAC ERP Groups - redirect to their specific menus
+    else if (await user.hasGroup("dac_erp.group_dac_erp_manager")) {
       const filteredArray = this.menuService
         .getApps()
         .filter(
@@ -44,6 +65,7 @@ patch(WebClient.prototype, {
       root = filteredArray[0];
       firstApp = root?.appID;
     } else {
+      // Default fallback to home_menu
       const filteredArray = this.menuService
         .getApps()
         .filter((item) => item.xmlid === "home_menu.home_root");

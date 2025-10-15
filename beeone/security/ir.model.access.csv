@@ -3,3 +3,6 @@ access_manager_ir_config_parameter,access_manager_ir_config_parameter,base.model
 
 access_marketing_ir_config_parameter,access_marketing_ir_config_parameter,base.model_ir_config_parameter,beeone.group_beeone_marketing,1,0,0,0
 access_employee_ir_config_parameter,access_employee_ir_config_parameter,base.model_ir_config_parameter,beeone.group_beeone_employee,1,0,0,0
+
+access_hr_employee_user_read,access.hr.employee.user.read,hr.model_hr_employee,beeone.group_beeone_marketing,1,0,0,0
+access_hr_employee_user_read,access.hr.employee.user.read,hr.model_hr_employee,beeone.group_beeone_employee,1,0,0,0

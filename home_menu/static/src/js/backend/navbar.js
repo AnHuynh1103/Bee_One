@@ -25,18 +25,43 @@ patch(NavBar.prototype, {
       );
 
       if (await user.hasGroup("base.group_system")) return;
-      if (await user.hasGroup("dac_erp.group_dac_erp_manager")) {
+      
+      // BEEONE Groups - redirect to home_menu
+      if (await user.hasGroup("beeone.group_beeone_manager")) {
+        const rootMenuItem = menuItems.find(
+          (item) => item.xmlid === "home_menu.home_root"
+        );
+        console.log("BEEONE Manager menu found:", rootMenuItem);
+        this.state.isMenuBlocked = true;
+        this.state.rootMenuActionID = rootMenuItem?.actionID;
+      } else if (await user.hasGroup("beeone.group_beeone_marketing")) {
+        const rootMenuItem = menuItems.find(
+          (item) => item.xmlid === "home_menu.home_root"
+        );
+        console.log("BEEONE Marketing menu found:", rootMenuItem);
+        this.state.isMenuBlocked = true;
+        this.state.rootMenuActionID = rootMenuItem?.actionID;
+      } else if (await user.hasGroup("beeone.group_beeone_employee")) {
+        const rootMenuItem = menuItems.find(
+          (item) => item.xmlid === "home_menu.home_root"
+        );
+        console.log("BEEONE Employee menu found:", rootMenuItem);
+        this.state.isMenuBlocked = true;
+        this.state.rootMenuActionID = rootMenuItem?.actionID;
+      }
+      // DAC ERP Groups - redirect to their specific menus
+      else if (await user.hasGroup("dac_erp.group_dac_erp_manager")) {
         const rootMenuItem = menuItems.find(
           (item) => item.xmlid === "dac_report.dac_sale_dashboard_menu_root"
         );
-        console.log("Manager menu found:", rootMenuItem);
+        console.log("DAC Manager menu found:", rootMenuItem);
         this.state.isMenuBlocked = true;
         this.state.rootMenuActionID = rootMenuItem?.actionID;
       } else if (await user.hasGroup("dac_erp.group_dac_erp_sale")) {
         const rootMenuItem = menuItems.find(
           (item) => item.xmlid === "dac_report.dac_sale_dashboard_menu_root"
         );
-        console.log("Sale menu found:", rootMenuItem);
+        console.log("DAC Sale menu found:", rootMenuItem);
         this.state.isMenuBlocked = true;
         this.state.rootMenuActionID = rootMenuItem?.actionID;
       } else if (
@@ -46,14 +71,15 @@ patch(NavBar.prototype, {
         const rootMenuItem = menuItems.find(
           (item) => item.xmlid === "dac_erp.dac_design_root_menu"
         );
-        console.log("Design menu found:", rootMenuItem);
+        console.log("DAC Design menu found:", rootMenuItem);
         this.state.isMenuBlocked = true;
         this.state.rootMenuActionID = rootMenuItem?.actionID;
       } else {
+        // Default fallback to home_menu
         const rootMenuItem = menuItems.find(
           (item) => item.xmlid === "home_menu.home_root"
         );
-        console.log("Home menu found:", rootMenuItem);
+        console.log("Default Home menu found:", rootMenuItem);
         this.state.isMenuBlocked = true;
         this.state.rootMenuActionID = rootMenuItem?.actionID;
       }
